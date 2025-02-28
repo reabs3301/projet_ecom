@@ -7,52 +7,52 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <title>HOME</title>
 </head>
-<body>
+<body style="background-color:#F8F9FA;">
     
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">E-STORE</a>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #007BFF;">
+        <div class="container-fluid" >
+          <a class="navbar-brand" href="#" style="color: aliceblue;">E-STORE</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="#" style="color: white;">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">ADD</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                <a class="nav-link" href="#" style="color: white;">ADD</a>
               </li>
             </ul>
             <form class="d-flex" role="search" method="POST" action="{% url 'search' %}">
               {% csrf_token %}
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="input_to_pass">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+              
+              <button class="btn btn-outline-success custom-search-btn" type="submit" >Search</button>
+              <style>
+                .custom-search-btn {
+                    background-color:white ;
+                    color: #007BFF ;
+                    border: 2px solid #007BFF ;
+                    /*transition: 0.3s ease-in-out;*/
+                }
+            
+                .custom-search-btn:hover {
+                    background-color: #007BFF ;
+                    color: white ;
+                }
+            </style>
             </form>
           </div>
         </div>
     </nav>
 
-    <div class="container mt-5">
+    <div class="container mt-5" >
         <h2 class="text-center mb-4">Our Products</h2>
         <div class="row">
             {% for product in products %}
-                <div class="col-md-4 mb-4">
-                    <div class="card shadow-sm">
+                <div class="col-md-4 mb-4" >
+                    <div class="card shadow-sm" >
                         {% if product.quantite > 0 %}
                             <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}" style="height: 250px; object-fit: cover;">
                             <div class="card-body">
